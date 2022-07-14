@@ -5,6 +5,7 @@ import logo from '~/assets/images/logo/logo.png';
 import HomeCard from '~/components/share/HomeCard';
 import MobileNav from './MobileNav';
 import Nav from './Nav';
+import Footer from '../share/Footer';
 
 const index: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   return (
@@ -20,7 +21,7 @@ const index: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
             {/* website logo */}
 
             <Link to="/">
-              <img className="h-[26px] lg:h-[32px]" src={logo} alt="logo" />
+              <img className="w-[200px] lg:w-[300px]" src={logo} alt="logo" />
             </Link>
           </div>
         </div>
@@ -36,8 +37,8 @@ const index: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           <div className="col-span-12 lg:col-span-8  ">
             {/* desktop nav  */}
             <Nav />
-
             {children}
+            <Footer />
           </div>
         </div>
       </section>
