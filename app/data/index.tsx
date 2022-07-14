@@ -16,13 +16,13 @@ export const menuItems = [
   {
     id: '01',
     name: 'About',
-    link: '/homeTwo/about',
+    link: '/',
     icon: <FaRegUser />,
   },
   {
     id: '02',
     name: 'Resume',
-    link: '/homeTwo/resume',
+    link: '/resume',
     icon: <CgNotes />,
   },
   {
