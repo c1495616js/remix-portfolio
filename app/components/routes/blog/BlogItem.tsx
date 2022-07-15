@@ -33,11 +33,11 @@ const BlogItem = ({
       </div>
       <h3
         // onClick={() => setIsOpen(true)}
-        className="text-lg font-medium dark:text-white duration-300 transition cursor-pointer mt-3 pr-4 hover:text-[#FA5252] dark:hover:text-[#FA5252]"
+        className="text-xl font-medium dark:text-white duration-300 transition cursor-pointer mt-3 pr-4 hover:text-[#FA5252] dark:hover:text-[#FA5252]"
       >
         {title}
       </h3>
-      <h6 className="dark:text-white/70 py-2">{description}</h6>
+      <h6 className="dark:text-white/70 py-2 text-sm">{description}</h6>
     </div>
   );
 };
