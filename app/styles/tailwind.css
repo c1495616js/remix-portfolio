@@ -1520,6 +1520,10 @@ html {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1746,6 +1750,14 @@ html {
 .dark .dark\:text-\[\#dedede\] {
   --tw-text-opacity: 1;
   color: rgb(222 222 222 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-white\/80 {
+  color: rgb(255 255 255 / 0.8);
+}
+
+.dark .dark\:text-white\/70 {
+  color: rgb(255 255 255 / 0.7);
 }
 
 .dark .dark\:hover\:text-\[\#FA5252\]:hover {

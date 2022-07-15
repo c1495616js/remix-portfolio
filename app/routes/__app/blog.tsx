@@ -1,7 +1,10 @@
 import React from 'react';
 
+import { useLoaderData } from '@remix-run/react';
 import { BsXCircle } from 'react-icons/bs';
 import Modal from 'react-modal';
+import { json, LoaderFunction } from '@remix-run/node';
+
 import user from '../../assets/images/about/about.jpg';
 import {
   FaDribbble,
@@ -9,14 +12,28 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from 'react-icons/fa';
-import { blogsData } from '~/data';
+// import { blogsData } from '~/data';
+import { getAllFrontMatters } from '~/api/read-post.server';
+import BlogItem from '~/components/routes/blog/BlogItem';
 
-const blog = () => {
+export const loader: LoaderFunction = async () => {
+  const data = await getAllFrontMatters();
+  console.log('data:', data);
+  return json<{ data: Awaited<ReturnType<typeof getAllFrontMatters>> }>({
+    data,
+  });
+};
+
+const Blog = () => {
   //   const handleModle = (id) => {
   //     handleBlogsData(id);
   //   };
 
   //   const blogDescriptionSplit = singleData?.description?.split('\n');
+
+  const { data: blogsData } = useLoaderData<{
+    data: Awaited<ReturnType<typeof getAllFrontMatters>>;
+  }>();
   return (
     <>
       <section className="bg-white  lg:rounded-2xl dark:bg-[#111111]">
@@ -29,38 +46,9 @@ const blog = () => {
               </h2>
               <div className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  mt-[30px] grid  gap-x-10 gap-y-7  mb-6">
                 {/* Blog items start */}
-                {blogsData.map((item) => {
-                  return (
-                    <div
-                      key={item.id}
-                      style={{
-                        background: `${'transparent'}`,
-                      }}
-                      className="p-5 rounded-lg mb-2 h-full dark:border-[#212425] dark:border-2"
-                    >
-                      <div className="overflow-hidden rounded-lg">
-                        <img
-                          //   onClick={() => handleModle(item?.id)}
-                          className="rounded-lg w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110"
-                          src={item?.imgSmall}
-                          alt=""
-                        />
-                      </div>
-                      <div className="flex mt-4 text-tiny text-gray-lite dark:text-[#A6A6A6]">
-                        <span>{item?.date}</span>
-                        <span className="pl-6 relative after:absolute after:h-1 after:w-1 after:bg-gray-lite after:rounded-full after:left-2 after:top-[50%] transform after:-translate-y-1/2">
-                          {item?.category}
-                        </span>
-                      </div>
-                      <h3
-                        // onClick={() => setIsOpen(true)}
-                        className="text-lg font-medium dark:text-white duration-300 transition cursor-pointer mt-3 pr-4 hover:text-[#FA5252] dark:hover:text-[#FA5252]"
-                      >
-                        {item?.title}
-                      </h3>
-                    </div>
-                  );
-                })}
+                {blogsData.map((item) => (
+                  <BlogItem {...item} key={item.slug} />
+                ))}
               </div>
             </div>
             {/* Blog items End */}
@@ -76,4 +64,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default Blog;
