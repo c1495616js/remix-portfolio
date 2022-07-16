@@ -10,6 +10,8 @@ import {
 
 import tailwindStyles from './styles/tailwind.css';
 import indexStyles from './styles/index.css';
+import codeStyles from './styles/code.css';
+import codeblockStyles from './styles/codeblock.css';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -21,6 +23,8 @@ export function links() {
   return [
     { rel: 'stylesheet', href: tailwindStyles },
     { rel: 'stylesheet', href: indexStyles },
+    { rel: 'stylesheet', href: codeStyles },
+    { rel: 'stylesheet', href: codeblockStyles },
   ];
 }
 
