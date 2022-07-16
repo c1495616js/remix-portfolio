@@ -6,10 +6,11 @@ import { bundleMDX } from 'mdx-bundler';
 
 import type { Frontmatter } from '~/types';
 
-const MDX_PATH = 'content/blog';
+const MDX_PATH = path.join(process.cwd(), 'blog');
 
 export async function getAllFrontMatters(): Promise<Frontmatter[]> {
   const paths = await globby([`${MDX_PATH}/**/*.mdx`]);
+
   const matters = await Promise.all(
     paths.map(async (filePath) => {
       const source = await fs.readFile(filePath, 'utf8');
