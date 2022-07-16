@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import { readdirSync } from 'fs';
 import path from 'path';
 import globby from 'globby';
 import readingTime from 'reading-time';
@@ -7,20 +8,23 @@ import { bundleMDX } from 'mdx-bundler';
 import type { Frontmatter } from '~/types';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-`${process.cwd()}, 'app/data/blog'`;
-const MDX_PATH = path.join(process.cwd(), 'app/data/blog');
+`${__dirname}, '../app/data/blog'`;
+const MDX_PATH = path.join(__dirname, '..', 'app/data/blog');
 export async function getAllFrontMatters(): Promise<Frontmatter[]> {
   // const pathss = await globby([`${MDX_PATH}/**/*.mdx`]);
 
-  const paths = await fs.readdir(MDX_PATH);
+  const paths = await fs.readdir(MDX_PATH, { withFileTypes: true });
 
   const matters = await Promise.all(
     paths.map(async (filePath) => {
-      const source = await fs.readFile(path.join(MDX_PATH, filePath), 'utf8');
+      const source = await fs.readFile(
+        path.join(MDX_PATH, filePath.name),
+        'utf8'
+      );
       const { code, frontmatter } = await bundleMDX({ source });
       return {
         ...(frontmatter as Frontmatter),
-        slug: path.basename(filePath).replace('.mdx', ''),
+        slug: path.basename(filePath.name).replace('.mdx', ''),
         readingTime: readingTime(code, { wordsPerMinute: 300 }),
       };
     })
