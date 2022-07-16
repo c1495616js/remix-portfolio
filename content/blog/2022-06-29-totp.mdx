@@ -3,6 +3,7 @@ title: What is TOTP?
 description: Document what is TOTP
 publishedAt: '2022-06-29'
 tags: ['security']
+image: 'https://images.unsplash.com/photo-1514302240736-b1fee5985889?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80'
 isPublished: true
 ---
 
@@ -29,7 +30,7 @@ const int = Math.floor(unix / 60);
 ```
 
 - When you generate TOTP, the website will give you a QRCode to scan, it consists the `secret`.
-Let's say secret is like: 
+  Let's say secret is like:
 
 ```js
 const SECRET = 'ABCDE12345';
@@ -40,9 +41,7 @@ const SECRET = 'ABCDE12345';
 ```js
 const crypto = require('crypto');
 
-const hash = crypto.createHmac('sha256', SECRET)
-                   .update(int)
-                   .digest('hex');
+const hash = crypto.createHmac('sha256', SECRET).update(int).digest('hex');
 ```
 
 - Convert the `hash` (16-digits) to `10-digits`.
@@ -54,7 +53,7 @@ const TOTP10Digits = parseInt(hash, 16);
 - Get the last 6-digits of `TOTP`
 
 ```js
-const TOTP = TOTP10Digists % 10^6;
+const TOTP = TOTP10Digists % 10 ^ 6;
 ```
 
 ## Conclusion

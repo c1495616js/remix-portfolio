@@ -1,35 +1,23 @@
 import React from 'react';
 
-import { useLoaderData } from '@remix-run/react';
-import { BsXCircle } from 'react-icons/bs';
-import Modal from 'react-modal';
-import { json, LoaderFunction } from '@remix-run/node';
+import { useLoaderData, Outlet, useParams } from '@remix-run/react';
+import type { LoaderFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
 
-import user from '../../assets/images/about/about.jpg';
-import {
-  FaDribbble,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-} from 'react-icons/fa';
-// import { blogsData } from '~/data';
 import { getAllFrontMatters } from '~/api/read-post.server';
 import BlogItem from '~/components/routes/blog/BlogItem';
+import BlogModal from '~/components/routes/blog/BlogModal';
 
 export const loader: LoaderFunction = async () => {
   const data = await getAllFrontMatters();
-  console.log('data:', data);
+
   return json<{ data: Awaited<ReturnType<typeof getAllFrontMatters>> }>({
     data,
   });
 };
 
 const Blog = () => {
-  //   const handleModle = (id) => {
-  //     handleBlogsData(id);
-  //   };
-
-  //   const blogDescriptionSplit = singleData?.description?.split('\n');
+  const { slug } = useParams();
 
   const { data: blogsData } = useLoaderData<{
     data: Awaited<ReturnType<typeof getAllFrontMatters>>;
@@ -54,7 +42,9 @@ const Blog = () => {
             {/* Blog items End */}
 
             {/* Blog modal start  */}
-
+            <BlogModal isOpen={!!slug}>
+              <Outlet />
+            </BlogModal>
             {/* Blog modal End  */}
           </div>
           {/* End .blog */}

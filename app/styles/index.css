@@ -1,0 +1,20 @@
+.dark {
+  --color-code-background: rgba(110, 118, 129, 0.4);
+  --color-code-background-file: hsla(221, 39%, 13%, 1);
+  --color-code-line-hover: hsla(221, 39%, 13%, 1);
+  --color-code-word-highlight: hsla(211, 24%, 21%, 1);
+  --color-code-word-highlight-hover: hsl(220, 100%, 80%, 1);
+
+  /* THEME: Duotone Sea  */
+  /* https://github.com/PrismJS/prism-themes/blob/master/themes/prism-duotone-sea.css  */
+  --color-code-text: rgb(201, 209, 217);
+  --color-code-comment: hsl(213, 24%, 45%);
+  --color-code-punctuation: hsl(213, 24%, 45%);
+  --color-code-const: hsl(160, 88%, 34%);
+  --color-code-bool: hsl(160, 80%, 60%);
+  --color-code-string: hsl(160, 80%, 60%);
+  --color-code-var: hsl(160, 80%, 60%);
+  --color-code-func: hsl(212, 24%, 45%);
+  --color-code-keyword: hsl(160, 80%, 60%);
+  --color-code-regex: hsl(160, 80%, 60%);
+}
