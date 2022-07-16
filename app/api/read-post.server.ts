@@ -9,19 +9,16 @@ import type { Frontmatter } from '~/types';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
 // `${__dirname}, '../app/data/blog'`;
-const MDX_PATH = 'public/blog';
-
+const MDX_PATH = path.join(__dirname, 'blog');
+console.log(path.join(__dirname, '..'));
 export async function getAllFrontMatters(): Promise<Frontmatter[]> {
-  const paths = await globby([`${MDX_PATH}/**/*.mdx`]);
+  // const pathss = await globby([`${MDX_PATH}/**/*.mdx`]);
 
-  // const paths = await fs.readdir(MDX_PATH);
+  const paths = await fs.readdir(MDX_PATH);
 
   const matters = await Promise.all(
     paths.map(async (filePath) => {
-      const source = await fs.readFile(
-        path.join(process.cwd(), filePath),
-        'utf8'
-      );
+      const source = await fs.readFile(path.join(MDX_PATH, filePath), 'utf8');
       const { code, frontmatter } = await bundleMDX({ source });
       return {
         ...(frontmatter as Frontmatter),
