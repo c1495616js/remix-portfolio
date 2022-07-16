@@ -9,7 +9,7 @@ import type { Frontmatter } from '~/types';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
 `${__dirname}, '../app/data/blog'`;
-const MDX_PATH = path.join(__dirname, '..', 'app/data/blog');
+const MDX_PATH = path.join(__dirname, '../..', 'app/data/blog');
 export async function getAllFrontMatters(): Promise<Frontmatter[]> {
   // const pathss = await globby([`${MDX_PATH}/**/*.mdx`]);
 
