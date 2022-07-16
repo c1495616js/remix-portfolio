@@ -7,6 +7,7 @@ node_modules
 
 /build/
 /public/build
+/public/blog
 /api/index.js
 /api/index.js.map
 /app/styles/tailwind.css

@@ -9,6 +9,7 @@
     "dev": "run-p dev:*",
     "dev:css": "npm run generate:css -- --watch",
     "dev:remix": "remix dev",
+    "dev:copy": "npm run build:copy",
     "generate:css": "tailwindcss -i ./styles/tailwind.css -o ./app/styles/tailwind.css"
   },
   "dependencies": {
