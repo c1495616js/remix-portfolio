@@ -6,8 +6,10 @@ import { bundleMDX } from 'mdx-bundler';
 
 import type { Frontmatter } from '~/types';
 
-const MDX_PATH = 'blog';
-
+// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+`${__dirname}, '..', 'app/data/blog'`;
+const MDX_PATH = path.join(__dirname, '..', 'app/data/blog');
+console.log('---', MDX_PATH);
 export async function getAllFrontMatters(): Promise<Frontmatter[]> {
   const paths = await globby([`${MDX_PATH}/**/*.mdx`]);
 
