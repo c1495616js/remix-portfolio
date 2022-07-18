@@ -18,8 +18,7 @@ function NavLink({
   return <Link className={allClassNames} to={to} {...rest} />;
 }
 
-const MobileNav = () => {
-  const [menuOpen, setMenuOpen] = React.useState(false);
+const MobileNav = ({ menuOpen, setMenuOpen }: any) => {
   const location = useLocation();
   return (
     <nav className={`${menuOpen ? 'block lg:hidden' : 'hidden'}`}>
