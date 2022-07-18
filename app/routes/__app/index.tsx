@@ -18,16 +18,14 @@ const index = () => {
               <div className="col-span-12 space-y-2.5">
                 <div className="lg:mr-16">
                   <p className="text-gray-lite  dark:text-color-910 leading-7">
-                    I'm Creative Director and UI/UX Designer from Sydney,
-                    Australia, working in web development and print media. I
-                    enjoy turning complex problems into simple, beautiful and
-                    intuitive designs.
+                    I'm a web developer from Taiwan, living in Canada. I am
+                    interested in <strong>React.js</strong>.
                   </p>
-                  <p className="text-gray-lite leading-7 mt-2.5 dark:text-color-910">
+                  {/* <p className="text-gray-lite leading-7 mt-2.5 dark:text-color-910">
                     My aim is to bring across your message and identity in the
                     most creative way. I created web design for many famous
                     brand companies.
-                  </p>
+                  </p> */}
                 </div>
                 <div></div>
               </div>
