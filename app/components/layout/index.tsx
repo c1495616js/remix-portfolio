@@ -10,8 +10,6 @@ import Footer from '../share/Footer';
 const index: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   return (
     <>
-      {/* End pagetitle */}
-
       <section className="bg-homeBg dark:bg-homeTwoBg-dark min-h-screen  bg-no-repeat bg-center bg-cover bg-fixed  md:pb-16 w-full">
         <div
           className="container   w-full bg-[#F3F6F6] dark:bg-black lg:bg-transparent lg:dark:bg-transparent flex justify-between py-5  lg:px-0 lg:pt-[50px]"
