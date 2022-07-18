@@ -2,6 +2,7 @@ import { CgNotes } from 'react-icons/cg';
 import { FaBlogger, FaRegUser, FaAward } from 'react-icons/fa';
 import { FiCodesandbox } from 'react-icons/fi';
 import { RiContactsBookLine } from 'react-icons/ri';
+import { MdOutlineBusinessCenter, MdOutlineSchool } from 'react-icons/md';
 
 //  icon use as img here
 import icon from '../assets/images/icons/icon-1.svg';
@@ -43,7 +44,7 @@ export const menuItems = [
   {
     id: '03',
     name: 'Works',
-    link: '/homeTwo/works',
+    link: '/works',
     icon: <FiCodesandbox />,
   },
   {
@@ -52,60 +53,54 @@ export const menuItems = [
     link: '/blog',
     icon: <FaBlogger />,
   },
-  {
-    id: '05',
-    name: 'Contact',
-    link: '/homeTwo/contact',
-    icon: <RiContactsBookLine />,
-  },
 ];
 
 export const experienceArray = [
-  {
-    id: '1',
-    icon: icon,
-    title: 'Ui/Ux Design',
-    des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-    color: '#D566FF',
-    bg: '#FCF4FF',
-  },
-  {
-    id: '2',
-    icon: icon1,
-    title: 'App Development',
-    des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-    color: '#DDA10C',
-    bg: '#FEFAF0',
-  },
-  {
-    id: '3',
-    icon: icon2,
-    title: 'Photography',
-    des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-    color: '#8774FF',
-    bg: '#FCF4FF',
-  },
+  // {
+  //   id: '1',
+  //   icon: icon,
+  //   title: 'Ui/Ux Design',
+  //   des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+  //   color: '#D566FF',
+  //   bg: '#FCF4FF',
+  // },
+  // {
+  //   id: '2',
+  //   icon: icon1,
+  //   title: 'App Development',
+  //   des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+  //   color: '#DDA10C',
+  //   bg: '#FEFAF0',
+  // },
+  // {
+  //   id: '3',
+  //   icon: icon2,
+  //   title: 'Photography',
+  //   des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+  //   color: '#8774FF',
+  //   bg: '#FCF4FF',
+  // },
   {
     id: '4',
     icon: icon3,
     title: 'Photography',
-    des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+    des: 'I have a Canon EOS RP camera, shooting pictures in my leisure time.',
     color: '#FF6080',
     bg: '#FFF4F4',
   },
-  {
-    id: '5',
-    icon: icon4,
-    title: 'Managment',
-    des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
-    color: '#FF75D8',
-    bg: '#FFF0F8',
-  },
+  // {
+  //   id: '5',
+  //   icon: icon4,
+  //   title: 'Managment',
+  //   des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+  //   color: '#FF75D8',
+  //   bg: '#FFF0F8',
+  // },
   {
     id: '6',
     icon: icon5,
     title: 'Web Development',
-    des: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.',
+    des: 'I am passionate about frontend development, React and Typescript.',
     color: '#269FFF',
     bg: '#F3FAFF',
   },
@@ -177,5 +172,70 @@ export const blogsData = [
     bg: '#EEFBFF',
     description:
       'Lorem ipsum dolor, sit amet consectetur adipisicing  elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing  elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non. \n Lorem ipsum dolor, sit amet consectetur adipisicing  elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consetur quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing  elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, sit amet consectetur adipisicing  elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur. \n Lorem ipsum dolor, sit amet consectetur adipisicing  elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non. ',
+  },
+];
+
+// Resume items for Resume page
+export const resumeArray = [
+  {
+    type: 'Experience',
+    icon: MdOutlineBusinessCenter,
+    data: [
+      {
+        id: '04',
+        date: '2021-Now',
+        title: 'Frontend Developer',
+        place: 'VitaminLab, Victoria, BC',
+        bg: '#EEF5FA',
+      },
+      {
+        id: '05',
+        date: '2019-2021',
+        title: 'Full Stack Developer',
+        place: 'Freshworks Studio, Victoria, BC',
+        bg: '#F2F4FF',
+      },
+    ],
+  },
+  {
+    type: 'Education',
+    icon: MdOutlineSchool,
+    data: [
+      {
+        id: '01',
+        date: '2010-2013',
+        title: 'Master in Mathematics',
+        place: 'National Taiwan University, Taiwan',
+        bg: '#FFF4F4',
+      },
+    ],
+  },
+];
+
+// Working Skills items for Resume page
+export const lineArray = [
+  {
+    id: '01',
+    color: '#FF6464',
+    name: 'Web Design',
+    number: '80',
+  },
+  {
+    id: '02',
+    color: '#9272D4',
+    name: 'Mobile App ',
+    number: '95',
+  },
+  {
+    id: '03',
+    color: '#5185D4',
+    name: 'Illustrator',
+    number: '65',
+  },
+  {
+    id: '03',
+    color: '#CA56F2',
+    name: 'Photoshope',
+    number: '75',
   },
 ];
