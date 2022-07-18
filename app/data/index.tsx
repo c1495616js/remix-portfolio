@@ -36,6 +36,12 @@ export const menuItems = [
     icon: <FaRegUser />,
   },
   {
+    id: '04',
+    name: 'Blog',
+    link: '/blog',
+    icon: <FaBlogger />,
+  },
+  {
     id: '02',
     name: 'Resume',
     link: '/resume',
@@ -46,12 +52,6 @@ export const menuItems = [
     name: 'Works',
     link: '/works',
     icon: <FiCodesandbox />,
-  },
-  {
-    id: '04',
-    name: 'Blog',
-    link: '/blog',
-    icon: <FaBlogger />,
   },
 ];
 

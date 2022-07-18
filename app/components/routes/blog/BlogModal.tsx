@@ -15,13 +15,18 @@ type Props = {
 };
 
 const BlogModal = ({ isOpen, children }: React.PropsWithChildren<Props>) => {
+  if (Modal.defaultStyles.overlay) {
+    Modal.defaultStyles.overlay.backgroundColor = '#070406';
+  }
   return (
     <Modal
       isOpen={isOpen}
       className="outline-none flex items-center p-4 md:p-8  rounded-2xl my-8"
     >
-      <div className=" w-full  md:w-10/12 flex items-center   lg:w-[850px] bg-white dark:bg-[#323232] mx-auto rounded-xl p-4 md:p-8 absolute left-1/2 top-1/2 transform -translate-x-[50%] -translate-y-[50%] shadow-lg ">
-        <div className={`${'scrollbarDark'} overflow-y-scroll max-h-[80vh] `}>
+      <div className=" w-full  md:w-10/12 flex items-center lg:w-[850px] bg-white dark:bg-[#323232] mx-auto rounded-xl p-4 md:p-8 absolute left-1/2 top-1/2 transform -translate-x-[50%] -translate-y-[50%] shadow-lg ">
+        <div
+          className={`${'scrollbarDark scrollbar-hide'} overflow-y-auto max-h-[80vh] `}
+        >
           <div className="pr-3 pb-2">
             <Link to="/blog">
               <BsXCircle
