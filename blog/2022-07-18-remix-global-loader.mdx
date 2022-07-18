@@ -1,0 +1,38 @@
+---
+title: Remix Global Loader
+description: Global spinner implementation in Remix.
+publishedAt: '2022-07-18'
+tags: ['remix', 'react']
+image: 'https://images.unsplash.com/photo-1511495997152-24fe970c7045?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+isPublished: true
+---
+
+## Description
+
+This is the custom hook of Global loader in `Remix`.
+
+## Code
+
+```ts filename=useProgress.ts
+import React from 'react';
+import { useGlobalPendingState } from 'remix-utils';
+import toast from 'react-hot-toast';
+
+function useProgress() {
+  let globalState = useGlobalPendingState();
+  const toastRef = React.useRef<string | null>(null);
+
+  if (globalState === 'idle') {
+    if (toastRef.current) {
+      toast.dismiss(toastRef.current);
+    }
+    return null;
+  }
+
+  const toastId = toast.loading('Loading...');
+  toastRef.current = toastId;
+}
+
+export default useProgress;
+
+```
