@@ -1,6 +1,6 @@
 import React from 'react';
-import { useGlobalPendingState } from 'remix-utils';
 import toast from 'react-hot-toast';
+import { useGlobalPendingState } from 'remix-utils';
 
 function useProgress() {
   let globalState = useGlobalPendingState();
