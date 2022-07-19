@@ -11,11 +11,19 @@ isPublished: true
 
 This blog I use github api to fetch the `.mdx` files to display the blog and deploy to `vercel`.
 Therefore, there's no need to rebuild when I simply update the blog contents.
+i.e. I want everything rebuid but `./blog`.
 
 ## Setup
+
+![](https://i.imgur.com/vk7Plad.png)
 
 ## Code
 
 ```bash
-git diff HEAD^ HEAD --quiet ./blog
+  git diff --quiet HEAD\^ HEAD -- . ':!./blog'
 ```
+
+## Refs
+
+- https://vercel.com/docs/concepts/projects/overview#ignored-build-step
+- https://stackoverflow.com/questions/4380945/exclude-a-directory-from-git-diff
