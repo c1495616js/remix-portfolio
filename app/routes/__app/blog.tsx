@@ -4,13 +4,14 @@ import { useLoaderData, Outlet, useParams } from '@remix-run/react';
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 
+import type { getAllFrontMatters } from '~/api/read-post.server';
 import {
   fetchMarkdownFiles,
-  getAllFrontMatters,
   getAllRemoteFrontMatters,
 } from '~/api/read-post.server';
 import BlogItem from '~/components/routes/blog/BlogItem';
 import BlogModal from '~/components/routes/blog/BlogModal';
+import BlogContentLayout from '~/components/routes/blog/BlogContentLayout';
 
 export const loader: LoaderFunction = async () => {
   const data = await getAllRemoteFrontMatters();
@@ -46,9 +47,13 @@ const Blog = () => {
             {/* Blog items End */}
 
             {/* Blog modal start  */}
+
             <BlogModal isOpen={!!slug}>
-              <Outlet />
+              <BlogContentLayout>
+                <Outlet />
+              </BlogContentLayout>
             </BlogModal>
+
             {/* Blog modal End  */}
           </div>
           {/* End .blog */}
