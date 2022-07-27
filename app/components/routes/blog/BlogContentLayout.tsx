@@ -6,9 +6,9 @@ const BlogContentLayout: React.FC<React.PropsWithChildren<{}>> = ({
   children,
 }) => {
   return (
-    <div className="w-full flex items-center lg:w-[850px] bg-white dark:bg-[#323232] mx-auto rounded-xl p-4 md:p-8 absolute left-1/2 top-1/2  h-screen lg:h-auto transform -translate-x-[50%] -translate-y-[50%] shadow-lg ">
+    <div className="w-full flex items-center lg:w-[850px] bg-white dark:bg-[#323232] mx-auto rounded-xl p-2 md:p-8 absolute left-1/2 top-1/2  h-screen lg:h-auto transform -translate-x-[50%] -translate-y-[50%] shadow-lg ">
       <div
-        className={`${'scrollbarDark scrollbar-hide'} overflow-y-auto max-h-[80vh] `}
+        className={`${'scrollbarDark scrollbar-hide'} overflow-y-auto max-h-[100vh] lg:max-h-[80vh]`}
       >
         <div className="pr-3 pb-2">
           <Link to="/blog">
@@ -42,7 +42,7 @@ const BlogContentLayout: React.FC<React.PropsWithChildren<{}>> = ({
         </div>
 
         {/* Comment show section */}
-        <div className="rounded-lg mt-6 bg-gradient-to-r from-[#FA5252] to-[#DD2476] p-[1px] mr-3">
+        <div className="rounded-lg my-4 bg-gradient-to-r from-[#FA5252] to-[#DD2476] p-[1px]">
           <div className=" dark:bg-[#232220] bg-[#ffffff]   flex  p-4 rounded-lg  ">
             <div>
               {/* <img
@@ -52,7 +52,7 @@ const BlogContentLayout: React.FC<React.PropsWithChildren<{}>> = ({
                   /> */}
             </div>
             <div className="w-full relative">
-              <section className="block lg:hidden fixed top-8 right-8">
+              <section className="block lg:hidden fixed top-12 right-8 z-20 bg-slate-500 p-2 mr-4 rounded-md">
                 <Link to="/blog">
                   <BsXCircle
                     // onClick={onClose}
