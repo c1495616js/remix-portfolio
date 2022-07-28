@@ -11,7 +11,7 @@ const MdxComponents = {
       return (
         <a
           {...props}
-          className="text-fore-subtle underline hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
+          className="break-words text-fore-subtle underline hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
           href={href}
           target="_blank"
           rel="noopener noreferrer"
