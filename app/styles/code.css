@@ -73,5 +73,12 @@ pre code {
 }
 
 .toc {
-  color: white;
+  margin-top: 1rem;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.toc-level-2 {
+  padding-left: 1rem;
 }

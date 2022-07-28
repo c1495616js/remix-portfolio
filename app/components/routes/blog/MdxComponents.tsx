@@ -24,7 +24,7 @@ const MdxComponents = {
         <a
           {...props}
           href={href}
-          className="duration-75 ease-out ml-1 opacity-0 origin-left scale-0 text-fore-subtle transform transition-transform group-hover:opacity-100 group-hover:scale-100 hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
+          className="duration-75 ease-out ml-1 origin-left scale-0 text-[#6EE7B7] hover:text-[#FA5252] transform transition-transform group-hover:opacity-100 group-hover:scale-100 hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,18 +38,17 @@ const MdxComponents = {
               clipRule="evenodd"
             />
           </svg>
+          <span>{props.children}</span>
         </a>
       );
     }
 
     return (
-      // <Link href={href}>
       <a
         {...props}
         href={href}
-        className="text-fore-subtle underline hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
+        className="break-words text-fore-subtle underline hover:text-accent focus-visible:outline-accent focus-visible:text-accent"
       />
-      // </Link>
     );
   },
   strong: ({ ...props }) => <strong {...props} className="font-semibold" />,
@@ -67,7 +66,16 @@ const MdxComponents = {
       <h3
         {...props}
         data-heading
-        className="flex font-bold group items-baseline leading-tight mb-4 mt-14 text-2xl text-accent"
+        className="text-[#FA5252] flex font-bold group items-baseline leading-tight mb-4 mt-14 text-xl text-accent"
+      />
+    );
+  },
+  h4: ({ ...props }) => {
+    return (
+      <h4
+        {...props}
+        data-heading
+        className="text-[#FA5252] flex font-bold group items-baseline leading-tight mb-4 mt-14 text-lg text-accent"
       />
     );
   },
