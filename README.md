@@ -1,23 +1,12 @@
-# Welcome to Remix!
+# Welcome to My Blog!
+
+This blog is built by `remix-run` and `tailwindCSS`.
 
 - [Remix Docs](https://remix.run/docs)
 
-## Deployment
-
-After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
-
-If you'd like to avoid using a Git repository, you can also deploy the directory by running [Vercel CLI](https://vercel.com/cli):
-
-```sh
-npm i -g vercel
-vercel
-```
-
-It is generally recommended to use a Git repository, because future commits will then automatically be deployed by Vercel, through its [Git Integration](https://vercel.com/docs/concepts/git).
-
 ## Development
 
-To run your Remix app locally, make sure your project's local dependencies are installed:
+### local
 
 ```sh
 npm install
@@ -31,4 +20,25 @@ npm run dev
 
 Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
 
-If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
+### Add new article
+
+Add `xxx.mdx` to the folder `blog`.
+
+#### Template
+
+```md
+---
+title: 
+description: 
+publishedAt: '2020-10-19'
+tags: ['']
+image: 'image url' # if has cover image.
+isPublished: true # decide if publish
+---
+```
+
+## Deployment
+
+As `fs` is not working properly on `vercel`, so we use `github` api to fetch all the blog articles. That's why I add a `loading spinner` to indicate the loading state.
+However, we use `fs` in local developement.
+Please see the file `app/api/read-post.server.ts`

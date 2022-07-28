@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 
-import { getRemotePost } from '~/api/read-post.server';
+import { getPost, getRemotePost } from '~/api/read-post.server';
 import { useLoaderData } from '@remix-run/react';
 import MdxComponents from '~/components/routes/blog/MdxComponents';
 import imgPlaceholder from '~/assets/images/blog_images/1.jpg';
@@ -25,7 +25,10 @@ export const loader: LoaderFunction = async ({ params, request }) => {
 
   if (!slug) throw new Response('Not found', { status: 404 });
 
-  const post = await getRemotePost(slug);
+  const post =
+    process.env.NODE_ENV === 'development'
+      ? await getPost(slug)
+      : await getRemotePost(slug);
   if (post) {
     const { frontmatter, code } = post;
     return json({ frontmatter, code });
