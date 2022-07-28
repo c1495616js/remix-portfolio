@@ -7,11 +7,18 @@ import { getRemotePost } from '~/api/read-post.server';
 import { useLoaderData } from '@remix-run/react';
 import MdxComponents from '~/components/routes/blog/MdxComponents';
 import imgPlaceholder from '~/assets/images/blog_images/1.jpg';
+import Comments from '~/components/routes/blog/Comments';
 
 type LoaderData = {
   frontmatter: any;
   code: string;
 };
+
+export function links() {
+  return [
+    { rel: 'preload', href: 'https://utteranc.es/client.js', as: 'script' },
+  ];
+}
 
 export const loader: LoaderFunction = async ({ params, request }) => {
   const slug = params.slug;
@@ -61,6 +68,7 @@ export default function Post() {
       <main className="text-white">
         <Component components={MdxComponents} />
       </main>
+      <Comments />
     </>
   );
 }

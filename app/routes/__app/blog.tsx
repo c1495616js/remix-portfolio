@@ -13,6 +13,12 @@ import BlogItem from '~/components/routes/blog/BlogItem';
 import BlogModal from '~/components/routes/blog/BlogModal';
 import BlogContentLayout from '~/components/routes/blog/BlogContentLayout';
 
+export function links() {
+  return [
+    { rel: 'preload', href: 'https://utteranc.es/client.js', as: 'script' },
+  ];
+}
+
 export const loader: LoaderFunction = async () => {
   const data = await getAllRemoteFrontMatters();
 
