@@ -13,7 +13,7 @@ export async function getAllFrontMatters(): Promise<Frontmatter[]> {
 
   const matters = await Promise.all(
     paths.map(async (filePath) => {
-      const source = await fs.readFile(path.join(MDX_PATH, filePath), 'utf8');
+      const source = await fs.readFile(path.join(filePath), 'utf8');
       const { code, frontmatter } = await bundleMDX({ source });
       return {
         ...(frontmatter as Frontmatter),

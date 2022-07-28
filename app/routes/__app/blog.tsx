@@ -4,11 +4,8 @@ import { useLoaderData, Outlet, useParams } from '@remix-run/react';
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 
-import type { getAllFrontMatters } from '~/api/read-post.server';
-import {
-  fetchMarkdownFiles,
-  getAllRemoteFrontMatters,
-} from '~/api/read-post.server';
+import { getAllFrontMatters } from '~/api/read-post.server';
+import { getAllRemoteFrontMatters } from '~/api/read-post.server';
 import BlogItem from '~/components/routes/blog/BlogItem';
 import BlogModal from '~/components/routes/blog/BlogModal';
 import BlogContentLayout from '~/components/routes/blog/BlogContentLayout';
@@ -20,7 +17,10 @@ export function links() {
 }
 
 export const loader: LoaderFunction = async () => {
-  const data = await getAllRemoteFrontMatters();
+  const data =
+    process.env.NODE_ENV === 'development'
+      ? await getAllFrontMatters()
+      : await getAllRemoteFrontMatters();
 
   return json<{ data: Awaited<ReturnType<typeof getAllFrontMatters>> }>({
     data,
