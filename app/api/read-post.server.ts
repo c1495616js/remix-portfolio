@@ -109,7 +109,7 @@ export async function getRemotePost(slug: string) {
         ...(options.rehypePlugins ?? []),
         rehypeAutolinkHeadings,
         rehypeSlug,
-        // rehypeToc,
+        rehypeToc,
         rehypePrism,
       ];
 
