@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { HiOutlineDocumentText } from 'react-icons/hi';
 import { useLoaderData, Outlet, useParams } from '@remix-run/react';
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
@@ -9,6 +9,7 @@ import { getAllRemoteFrontMatters } from '~/api/read-post.server';
 import BlogItem from '~/components/routes/blog/BlogItem';
 import BlogModal from '~/components/routes/blog/BlogModal';
 import BlogContentLayout from '~/components/routes/blog/BlogContentLayout';
+import { IconContext } from 'react-icons';
 
 export function links() {
   return [
@@ -43,6 +44,21 @@ const Blog = () => {
               <h2 className="after-effect after:left-32 mt-12 lg:mt-0">
                 Blogs
               </h2>
+              <section className="mt-4">
+                <a
+                  href="https://jerry-fe-library.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex gap-1 items-center text-white hover:text-[#FA5252] text-lg"
+                >
+                  <IconContext.Provider
+                    value={{ color: 'white', size: '20px' }}
+                  >
+                    <HiOutlineDocumentText />
+                  </IconContext.Provider>
+                  My Document
+                </a>
+              </section>
               <div className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-2  mt-[30px] grid  gap-x-10 gap-y-7  mb-6">
                 {/* Blog items start */}
                 {blogsData.map((item) => (
