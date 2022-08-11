@@ -11,6 +11,8 @@
     "generate:css": "tailwindcss -i ./styles/tailwind.css -o ./app/styles/tailwind.css"
   },
   "dependencies": {
+    "@remark-embedder/core": "^3.0.1",
+    "@remark-embedder/transformer-oembed": "^3.0.0",
     "@remix-run/node": "^1.6.4",
     "@remix-run/react": "^1.6.4",
     "@remix-run/vercel": "^1.6.4",

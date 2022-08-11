@@ -4,6 +4,7 @@ import globby from 'globby';
 import readingTime from 'reading-time';
 import { bundleMDX } from 'mdx-bundler';
 
+import remardEmbed from '~/utils/remark-embed';
 import type { Frontmatter } from '~/types';
 
 const MDX_PATH = 'blog';
@@ -70,7 +71,11 @@ export async function getPost(slug: string) {
   const post = await bundleMDX({
     source,
     mdxOptions(options) {
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []),
+        remarkGfm,
+        remardEmbed,
+      ];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeAutolinkHeadings,
@@ -104,7 +109,11 @@ export async function getRemotePost(slug: string) {
   const post = await bundleMDX({
     source,
     mdxOptions(options) {
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []),
+        remarkGfm,
+        remardEmbed,
+      ];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeAutolinkHeadings,
