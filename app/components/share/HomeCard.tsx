@@ -89,7 +89,15 @@ const HomeCard = () => {
               </div>
             </div>
           </div>
-          <button className="flex items-center mx-auto bg-gradient-to-r from-[#FA5252] to-[#DD2476] duration-200 transition ease-linear hover:bg-gradient-to-l from-[#DD2476]  to-[#fa5252ef] px-8 py-3 text-lg text-white rounded-[35px] mt-6">
+          <button
+            className="flex items-center mx-auto bg-gradient-to-r from-[#FA5252] to-[#DD2476] duration-200 transition ease-linear hover:bg-gradient-to-l hover:from-[#DD2476]  hover:to-[#fa5252ef] px-8 py-3 text-lg text-white rounded-[35px] mt-6"
+            onClick={() => {
+              window.open(
+                'https://drive.google.com/file/d/1ZT0KUZzuC13yP4L_YHpbzHgOD-y_Gsc6/view?usp=sharing',
+                '_blank'
+              );
+            }}
+          >
             <img src={downloadIcon} alt="icon" className="mr-2" />
             Download CV
           </button>
